@@ -1,8 +1,9 @@
 name: Export catalogs to CSV
 
 on:
-  push:
-    branches: [ main ]
+#  push:
+#    branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   export-to-csv:
