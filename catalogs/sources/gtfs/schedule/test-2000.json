@@ -23,7 +23,6 @@
         "latest": "https://storage.googleapis.com/storage/v1/b/mdb-latest/o/us-california-eastern-sierra-transit-gtfs-25.zip?alt=media"
     },
     "redirects": [
-        "25"
     ]
 
 }
