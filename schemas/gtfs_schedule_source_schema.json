@@ -180,6 +180,13 @@
         }
       ],
       "required": ["direct_download", "latest"]
+    },
+    "redirects": {
+      "type": "array",
+      "description": "A list of feed IDs that should be used as a replacement for this feed.",
+      "items": {
+        "type": "string"
+      }
     }
   },
   "required": ["mdb_source_id", "data_type", "provider", "location", "urls"]
