@@ -75,6 +75,7 @@ jobs:
             UNKNOWN = "unknown"
             URLS_AUTHENTICATION_TYPE = "urls.authentication_type"
             FEATURES = "features"
+            REDIRECTS = "redirects"
 
             # tools.constants.GTFS_SCHEDULE_CATALOG_PATH_FROM_ROOT
             GTFS_SCHEDULE_CATALOG_PATH_FROM_ROOT = "catalogs/sources/gtfs/schedule"
@@ -111,6 +112,8 @@ jobs:
                     source[ENTITY_TYPE] = "|".join(source.get(ENTITY_TYPE))
                 if len(source.get(FEATURES, [])) > 0:
                     source[FEATURES] = "|".join(source.get(FEATURES))
+                if len(source.get(REDIRECTS, [])) > 0:
+                    source[REDIRECTS] = "|".join(source.get(REDIRECTS))
                 catalog[source_id] = source
             # Sort the catalog and convert it to a list
             catalog = list(dict(sorted(catalog.items())).values())
