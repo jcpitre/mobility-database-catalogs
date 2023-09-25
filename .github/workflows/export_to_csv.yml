@@ -112,7 +112,7 @@ jobs:
                     source[ENTITY_TYPE] = "|".join(source.get(ENTITY_TYPE))
                 if len(source.get(FEATURES, [])) > 0:
                     source[FEATURES] = "|".join(source.get(FEATURES))
-                if len(source.get(REDIRECTS, [])) > 0:
+                if len(source.get(REDIRECTS, "")) > 0:
                     source[REDIRECTS] = "|".join(source.get(REDIRECTS))
                 catalog[source_id] = source
             # Sort the catalog and convert it to a list
