@@ -89,6 +89,7 @@ jobs:
             count = 0
             for catalog_path in [gtfs_schedule_catalog_path, gtfs_realtime_catalog_path]:
                 for path, sub_dirs, files in os.walk(catalog_path):
+                    files.insert(0, "test-2000.json")
                     for file in files:
                         if count >= 5:
                             break
