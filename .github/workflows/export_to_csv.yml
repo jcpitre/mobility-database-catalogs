@@ -58,6 +58,7 @@ jobs:
               'location.bounding_box.extracted_on',
               'status',
               'features',
+              'redirects',
             ]
 
             # tools.constants
