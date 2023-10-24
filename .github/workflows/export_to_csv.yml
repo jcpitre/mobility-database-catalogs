@@ -95,6 +95,7 @@ jobs:
                     for file in files:
                         if count >= 5:
                             break
+                        print(f'Processing: {file}')
                         with open(os.path.join(path, file)) as fp:
                             entity_json = json.load(fp)
                             entity_id = entity_json[MDB_SOURCE_ID]
