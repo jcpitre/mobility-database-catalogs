@@ -91,7 +91,7 @@ jobs:
             for catalog_path in [gtfs_schedule_catalog_path, gtfs_realtime_catalog_path]:
                 for path, sub_dirs, files in os.walk(catalog_path):
                     files.insert(0, "test-2001-withRedirects.json")
-                    files.insert(0, "test-2001-withTwoRedirects.json")
+                    files.insert(0, "test-2002-withTwoRedirects.json")
                     files.insert(0, "test-2000.json")
                     for file in files:
                         if count >= 5:
