@@ -59,6 +59,7 @@ jobs:
               'status',
               'features',
               'redirects',
+              'redirects_comment'
             ]
 
             # tools.constants
@@ -115,7 +116,7 @@ jobs:
                     source[ENTITY_TYPE] = "|".join(source.get(ENTITY_TYPE))
                 if len(source.get(FEATURES, [])) > 0:
                     source[FEATURES] = "|".join(source.get(FEATURES))
-                # For redirectrs, allow strings or integers
+                # For redirects, allow strings or integers
                 if len(source.get(REDIRECTS, [])) > 0:
                     source[REDIRECTS] = "|".join(str(item) for item in source.get(REDIRECTS))
                 else:
