@@ -187,6 +187,10 @@
       "items": {
         "type": "string"
       }
+    },
+    "redirects_comment": {
+      "type": "string",
+      "description": "A optional comment explaining the nature of the redirect(s)."
     }
   },
   "required": ["mdb_source_id", "data_type", "provider", "location", "urls"]
