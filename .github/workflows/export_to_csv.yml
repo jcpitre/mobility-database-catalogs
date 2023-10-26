@@ -77,6 +77,7 @@ jobs:
             URLS_AUTHENTICATION_TYPE = "urls.authentication_type"
             FEATURES = "features"
             REDIRECTS = "redirects"
+            REDIRECTS_COMMENTS = "redirects_comments"
 
             # tools.constants.GTFS_SCHEDULE_CATALOG_PATH_FROM_ROOT
             GTFS_SCHEDULE_CATALOG_PATH_FROM_ROOT = "catalogs/sources/gtfs/schedule"
@@ -114,14 +115,18 @@ jobs:
                     else:
                         source[LOCATION] = {COUNTRY_CODE: UNKNOWN, SUBDIVISION_NAME: UNKNOWN, MUNICIPALITY: UNKNOWN}
                     source[ENTITY_TYPE] = "|".join(source.get(ENTITY_TYPE))
-                else:
-                    # For redirects, allow strings or integers
-                    if len(source.get(REDIRECTS, [])) > 0:
-                        source[REDIRECTS] = "|".join(str(item) for item in source.get(REDIRECTS))
-                    else:
-                        source[REDIRECTS] = ""
+
                 if len(source.get(FEATURES, [])) > 0:
                     source[FEATURES] = "|".join(source.get(FEATURES))
+            
+                # For redirects, allow strings or integers
+                if len(source.get(REDIRECTS, [])) > 0:
+                    source[REDIRECTS] = "|".join(str(item) for item in source.get(REDIRECTS))
+                else:
+                    source[REDIRECTS] = ""
+            
+                if len(source.get(REDIRECTS_COMMENTS, [])) > 0:
+                    source[REDIRECTS_COMMENTS] = "|".join(source.get(REDIRECTS_COMMENTS))
 
                 catalog[source_id] = source
             # Sort the catalog and convert it to a list
