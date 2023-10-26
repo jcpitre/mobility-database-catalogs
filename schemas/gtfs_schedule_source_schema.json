@@ -189,8 +189,11 @@
       }
     },
     "redirects_comments": {
-      "type": "string",
-      "description": "Optional comments explaining the nature of the redirect(s)."
+      "type": "array",
+      "description": "Optional comments explaining the nature of the redirect(s).",
+      "items": {
+        "type": "string"
+      }
     }
   },
   "required": ["mdb_source_id", "data_type", "provider", "location", "urls"]
