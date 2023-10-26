@@ -127,8 +127,10 @@ jobs:
             
                 if len(source.get(REDIRECTS_COMMENTS, [])) > 0:
                     val = source.get(REDIRECTS_COMMENTS)
-                    print(f'comments: {val}')
+                    print(f'comments before: {val}')
                     source[REDIRECTS_COMMENTS] = "|".join(source.get(REDIRECTS_COMMENTS))
+                    val = source.get(REDIRECTS_COMMENTS)
+                    print(f'comments after: {val}')                    
                 else:
                     print('redirects comments is empty')
 
