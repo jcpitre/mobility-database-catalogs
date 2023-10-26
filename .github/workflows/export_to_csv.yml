@@ -59,7 +59,7 @@ jobs:
               'status',
               'features',
               'redirects',
-              'redirects_comment'
+              'redirects_comments'
             ]
 
             # tools.constants
