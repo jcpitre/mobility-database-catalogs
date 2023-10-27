@@ -151,7 +151,7 @@ jobs:
                     tmp[column] = catalog[column]
                 else:
                     tmp[column] = ""
-                    print(f'Column {columm} not in catalog')
+                    print(f'Column {column} not in catalog')
             catalog = tmp
             if URLS_AUTHENTICATION_TYPE in catalog:
                 catalog[URLS_AUTHENTICATION_TYPE] = catalog[URLS_AUTHENTICATION_TYPE].astype('Int64')
