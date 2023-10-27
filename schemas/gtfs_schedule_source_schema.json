@@ -181,18 +181,22 @@
       ],
       "required": ["direct_download", "latest"]
     },
-    "redirects": {
+    "redirect": {
       "type": "array",
       "description": "A list of feed IDs that should be used as a replacement for this feed.",
       "items": {
-        "type": "string"
-      }
-    },
-    "redirects_comments": {
-      "type": "array",
-      "description": "Optional comments explaining the nature of the redirect(s).",
-      "items": {
-        "type": "string"
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The target feed id of that redirect"
+          },
+          "comment": {
+            "type": "string",
+            "description": "A comment explaining the redirect"
+          }
+        }
+
       }
     }
   },

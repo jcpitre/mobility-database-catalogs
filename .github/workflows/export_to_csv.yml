@@ -58,8 +58,8 @@ jobs:
               'location.bounding_box.extracted_on',
               'status',
               'features',
-              'redirects',
-              'redirects_comments'
+              'redirect.id',
+              'redirect.comment'
             ]
 
             # tools.constants
@@ -76,8 +76,9 @@ jobs:
             UNKNOWN = "unknown"
             URLS_AUTHENTICATION_TYPE = "urls.authentication_type"
             FEATURES = "features"
-            REDIRECTS = "redirects"
-            REDIRECTS_COMMENTS = "redirects_comments"
+            REDIRECTS = "redirect"
+            REDIRECT_ID = "redirect.id"
+            REDIRECT_COMMENT = "redirect.comment"
 
             # tools.constants.GTFS_SCHEDULE_CATALOG_PATH_FROM_ROOT
             GTFS_SCHEDULE_CATALOG_PATH_FROM_ROOT = "catalogs/sources/gtfs/schedule"
@@ -120,11 +121,17 @@ jobs:
                     source[FEATURES] = "|".join(source.get(FEATURES))
             
                 # For redirects, allow strings or integers
-                if len(source.get(REDIRECTS, [])) > 0:
-                    source[REDIRECTS] = "|".join(str(item) for item in source.get(REDIRECTS))
+                redirects = source.pop(REDIRECTS, [])
+                if len(redirects) > 0:
+                    ids = [item['id'] for item in redirects]
+                    print(f'For feed {source_id} redirects = {ids}')
+                    source[REDIRECT_ID] = "|".join(str(item) for item in ids)
+                    comments = [item['comment'] for item in redirects]
+                    source[REDIRECT_COMMENT]  = "|".join(comments)
                 else:
-                    source[REDIRECTS] = ""
-            
+                    source[REDIRECT_ID] = ""
+                    source[REDIRECT_COMMENT] = ""
+                
                 if len(source.get(REDIRECTS_COMMENTS, [])) > 0:
                     val = source.get(REDIRECTS_COMMENTS)
                     print(f'comments before: {val}')
@@ -146,6 +153,8 @@ jobs:
             for column in columns:
                 if column in catalog:
                     tmp[column] = catalog[column]
+                else:
+                    tmp[column] = ""
             catalog = tmp
             if URLS_AUTHENTICATION_TYPE in catalog:
                 catalog[URLS_AUTHENTICATION_TYPE] = catalog[URLS_AUTHENTICATION_TYPE].astype('Int64')
