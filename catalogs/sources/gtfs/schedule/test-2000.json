@@ -18,6 +18,7 @@
             "extracted_on": "2022-03-14T20:06:51+00:00"
         }
     },
+    "status": "active",
     "urls": {
         "direct_download": "http://data.trilliumtransit.com/gtfs/easternsierra-ca-us/easternsierra-ca-us.zip",
         "latest": "https://storage.googleapis.com/storage/v1/b/mdb-latest/o/us-california-eastern-sierra-transit-gtfs-25.zip?alt=media"
