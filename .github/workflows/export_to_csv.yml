@@ -131,15 +131,6 @@ jobs:
                 else:
                     source[REDIRECT_ID] = ""
                     source[REDIRECT_COMMENT] = ""
-                
-                if len(source.get(REDIRECTS_COMMENTS, [])) > 0:
-                    val = source.get(REDIRECTS_COMMENTS)
-                    print(f'comments before: {val}')
-                    source[REDIRECTS_COMMENTS] = "|".join(source.get(REDIRECTS_COMMENTS))
-                    val = source.get(REDIRECTS_COMMENTS)
-                    print(f'comments after: {val}')                    
-                else:
-                    print('redirects comments is empty')
 
                 catalog[source_id] = source
             # Sort the catalog and convert it to a list
