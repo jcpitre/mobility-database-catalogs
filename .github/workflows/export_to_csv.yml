@@ -127,7 +127,7 @@ jobs:
                 comments = []
 
                 for item in redirects:
-                    ids.append(str(item["id"]))    # Convert to string since we allow integer ids
+                    ids.append(str(item["id"]))               # Convert to string since we allow integer ids
                     comments.append(item.get("comment", ""))  # Default to an empty string if "comment" is missing
 
                 # Join the ids and comments with '|' as separator
@@ -154,7 +154,8 @@ jobs:
                     print(f'Column {column} not in catalog')
             catalog = tmp
             if URLS_AUTHENTICATION_TYPE in catalog:
-                catalog[URLS_AUTHENTICATION_TYPE] = catalog[URLS_AUTHENTICATION_TYPE].astype('Int64')
+                authentication_type = catalog[URLS_AUTHENTICATION_TYPE]
+                catalog[URLS_AUTHENTICATION_TYPE] = authentication_type.astype('Int64') if authentication_type else ""
             catalog.to_csv(path, sep=",", index=False)
 
       - name: Upload the catalog of sources CSV artifact
