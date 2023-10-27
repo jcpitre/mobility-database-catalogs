@@ -149,13 +149,9 @@ jobs:
             for column in columns:
                 if column in catalog:
                     tmp[column] = catalog[column]
-                else:
-                    tmp[column] = ""
-                    print(f'Column {column} not in catalog')
             catalog = tmp
             if URLS_AUTHENTICATION_TYPE in catalog:
-                authentication_type = catalog[URLS_AUTHENTICATION_TYPE]
-                catalog[URLS_AUTHENTICATION_TYPE] = authentication_type.astype('Int64') if authentication_type else ""
+                catalog[URLS_AUTHENTICATION_TYPE] = catalog[URLS_AUTHENTICATION_TYPE].astype('Int64')
             catalog.to_csv(path, sep=",", index=False)
 
       - name: Upload the catalog of sources CSV artifact
