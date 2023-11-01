@@ -24,9 +24,8 @@
     },
     "redirect": [
         {
-            "id": 22,
-            "comment": "SOme comment"
+            "id": 2002,
+            "comment": "Forward redirect"
         }
-    ],
-    "redirects": ["25"]
+    ]
 }
